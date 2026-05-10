@@ -1,0 +1,34 @@
+<html>
+	<meta charset="utf-8">
+	<head><title>Home - Show de Motos</title>
+	<style>
+		label {
+			margin-left: 1vw;
+		}
+		button {
+			margin-left: 2vw;
+		}
+	</style>
+	</head>	
+	<body>
+		<h1>Moto</h1>
+		<form method="POST" action="/moto/salvar">
+			<input name="idDono" th:value="${idUsuario}" type="hidden">
+			<input name="id" th:value="${id}" type="hidden">
+			<label for="modelo">Modelo: </label>
+			<input name="modelo" type="text" placeholder="Modelo" th:value="${modelo}">
+			<p>
+			<label for="cor">Cor: </label>
+			<input name="cor" type="text" placeholder="Cor" th:value="${cor}">
+			</p>
+			<p>
+			<label for="ano">Ano: </label>
+			<input name="ano" type="number" th:value="${ano}">
+			</p>
+			<p>
+				<button type="button" onclick="window.location.href='/usuario'">Cancelar</button>
+				<button>Salvar edição</button>
+			</p>
+		</form>
+	</body>
+</html>

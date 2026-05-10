@@ -1,0 +1,24 @@
+<html>
+	<meta charset="utf-8">
+	<head><title>Home - Show de Motos</title></head>	
+	<body>
+		<h1>Bem vindo!</h1>
+		<p>Deseja criar um usuario?
+		<form method="POST" action="/usuario/criar">
+			<input name="nome" type="text" placeholder="nome">
+			<input name="email" type="email" placeholder="Email">
+			<button >Criar usuário</button>
+		</form>
+		<form method="POST" action="/usuario/buscar">
+			<input name="nome" type="text">
+			<button>Buscar</button>
+		</form>
+		<ul>
+			<li th:each="usuario : ${listaUsuario}">
+				[[${usuario.nome}]] ([[${usuario.id}]]): [[${usuario.email}]] 
+				<a style="margin-left:2vw" th:href="@{/usuario/editar?id={id}(id=${usuario.id})}">Editar</a>
+				<a style="margin-left:2vw" th:href="@{/usuario/deletar?id={id}(id=${usuario.id})}">Deletar</a>
+			</li>
+		</ul>
+	</body>
+</html>

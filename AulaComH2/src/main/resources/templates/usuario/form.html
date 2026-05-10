@@ -1,0 +1,40 @@
+<html>
+	<meta charset="utf-8">
+	<head><title>Home - Show de Motos</title>
+	<style>
+		label {
+			margin-left: 1vw;
+		}
+		button {
+			margin-left: 2vw;
+		}
+	</style>
+	</head>	
+	<body>
+		<h1>Editar usuário</h1>
+		<form method="POST" action="/usuario/salvar">
+			<input name="id" th:value="${id}" type="hidden">
+			<label for="nome">Nome: </label>
+			<input name="nome" type="text" placeholder="nome" th:value="${nome}">
+			<p></p>
+			<label for="email">E-mail: </label>
+			<input name="email" type="email" placeholder="Email" th:value="${email}">
+			<p>
+				<button type="button" onclick="window.location.href='/usuario'">Cancelar</button>
+				<button >Salvar edição</button>
+			</p>
+		</form>
+		<p>
+			<h1>Motos</h1>
+			<ul>
+				<li th:each="moto : ${listaMoto}">
+					[[${moto.modelo}]] [[${moto.cor}]] ([[${moto.ano}]]) 
+					<a style="margin-left:2vw" th:href="@{/moto/editar?id={id}(id=${moto.id})}">Editar</a>
+					<a style="margin-left:2vw" th:href="@{/moto/deletar?id={id}(id=${moto.id})}">Deletar</a>
+				</li>
+			</ul>
+		</p>
+		
+		<p><a th:href="@{/moto?id_usuario={id}(id=${id})}">Adicionar moto</a></p>
+	</body>
+</html>
